@@ -1,0 +1,37 @@
+# Provisional game profile of LEGO® CITY UNDERCOVER (Switch, update v131072 = 1.0.2), generated from the survey with dm/games/profile_guess.py and played on the Mac (README.md); not checked by hand.
+# Traveller's Tales' engine on NVN, SDK 1.3.1. Its shaders are BNSH / BAHS programs in CC4 .dat archives (RFPK-compressed members) and main; ttdat.py reads the -11 / -12 / -13 layouts.
+# Format: see dm/games/README.md
+
+# ---- Identity ----
+title_id	010085500130A000
+program_id	010085500130A000
+
+# ---- App ----
+name	LEGO® CITY UNDERCOVER
+ipa	LegoCityUndercover.ipa
+app_category	public.app-category.games
+
+# ---- Versions ----
+build	v131072	1.0.2	main=7b021c62485d604cb8b107faec403f6b	subsdk0=3612d66d30dbd18d6cce211138c88eec	subsdk1=45e9265eeb138d2b4428df0c5f8ff88d	subsdk2=8a052b6dfd9b1515a85882ad8699869d	subsdk4=ad84f543dad22836a94c58daae35ea3a	sdk=9f841a6521ca02a184ce694c3e242519
+package	v131072
+shader_versions	v131072
+
+# ---- Files ----
+# not loaded, main takes nothing from them the host does not supply: subsdk3 (NintendoSDK_libcurl)
+modules	main subsdk0 subsdk1 subsdk2 subsdk4 sdk
+romfs_marker	GAME.DAT
+# .dat are already compressed (RFPK) and .mp4 are movies: store them as they are in the IPA. The Mac app ships romfs.img, not a zip.
+zip_store	.dat:.mp4:.metallib
+
+# ---- Memory ----
+# main sets a heap of at most the pool − 64 MB: a 3328 MB heap region
+mem_reserve	0x100000000
+mem_alias	0x10000000
+mem_stack	0x10000000
+app_pool	0xCD500000
+# the NPDM declares 0 MB of system resource: IsVirtualAddressMemoryEnabled is false, as on Horizon (Big Brain Academy: Brain vs. Brain sets a heap only then)
+sys_resource	0x0
+
+# ---- Shader split (shader_split.py; the BNSH / BAHS programs in the CC4 .dat archives and main) ----
+shader_groups	/MOVIES/=movies
+shader_note	LEGO® CITY UNDERCOVER shaders
