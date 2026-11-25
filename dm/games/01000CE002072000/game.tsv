@@ -1,0 +1,42 @@
+# Provisional game profile of The LEGO® NINJAGO® Movie Video Game (Switch, base v0 = 1.0.0), generated from the survey with dm/games/profile_guess.py and played on the Mac (README.md); not checked by hand.
+# The update v196608 = 1.0.3 has the same 7,257 shader keys (its map is identical), but this profile is for the base v0 and the update was not swept.
+# Traveller's Tales' engine on NVN, SDK 1.3.1. Its shaders are BNSH / BAHS programs in CC4 .dat archives (RFPK-compressed members) and main; ttdat.py reads the -11 / -12 / -13 layouts.
+# Format: see dm/games/README.md
+
+# ---- Identity ----
+title_id	01000CE002072000
+program_id	01000CE002072000
+
+# ---- App ----
+name	The LEGO® NINJAGO® Movie Video Game
+ipa	TheLegoNinjagoMovieVideoGame.ipa
+app_category	public.app-category.games
+
+# ---- Versions ----
+build	v0	1.0.0	main=5450240fb6ee7344b8534c6270e588b9	subsdk0=3612d66d30dbd18d6cce211138c88eec	subsdk1=45e9265eeb138d2b4428df0c5f8ff88d	subsdk2=8a052b6dfd9b1515a85882ad8699869d	subsdk3=fb6cf575030b172de196a929241cac7f	subsdk4=ad84f543dad22836a94c58daae35ea3a	sdk=9f841a6521ca02a184ce694c3e242519
+package	v0
+shader_versions	v0
+
+# ---- Files ----
+# not loaded, main takes nothing from them the host does not supply: subsdk5 (C / libc)
+modules	main subsdk0 subsdk1 subsdk2 subsdk3 subsdk4 sdk
+romfs_marker	GAME.DAT
+# .dat are already compressed (RFPK) and .metallib is a shader library: store them as they are in the IPA. The Mac app ships romfs.img, not a zip.
+zip_store	.dat:.metallib
+
+# ---- Memory ----
+# main sets a heap of at most the pool − 64 MB: a 3328 MB heap region
+mem_reserve	0x100000000
+mem_alias	0x10000000
+mem_stack	0x10000000
+app_pool	0xCD500000
+# the NPDM declares 0 MB of system resource: IsVirtualAddressMemoryEnabled is false, as on Horizon (Big Brain Academy: Brain vs. Brain sets a heap only then)
+sys_resource	0x0
+
+# ---- Shader split (shader_split.py; the BNSH / BAHS programs in the CC4 .dat archives and main) ----
+shader_groups	/=romfs
+shader_note	The LEGO® NINJAGO® Movie Video Game shaders
+
+# ---- After the rewrite ----
+# used memory for the current rewritten modules, at least the default 64 MB
+mem_used	0x6a00000
